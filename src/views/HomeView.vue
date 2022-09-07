@@ -1,6 +1,5 @@
 <template>
   <div class="events">
-    <h1>Events are Good</h1>
     <EventCard v-for="event in events" :key="event.id" :event="event" />
   </div>
 </template>
@@ -50,7 +49,8 @@ export default {
 }
 .events {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+  padding-top: 80px;
 }
 </style>

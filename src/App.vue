@@ -25,13 +25,14 @@ header {
 
 nav {
   width: 100%;
+  background-color: #1f5b8f;
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
 }
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
+  color: white;
 }
 
 nav a.router-link-exact-active:hover {
@@ -57,15 +58,21 @@ nav a:first-of-type {
 
 #nav {
   padding: 30px;
+  background-color: #104471;
 }
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: white;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: black;
+  border: 5px solid wheat;
+  background-color: wheat;
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 800;
 }
 @media (min-width: 1024px) {
 
