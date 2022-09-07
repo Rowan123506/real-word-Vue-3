@@ -1,5 +1,5 @@
 <template>
-   <div class="events">
+  <div class="events">
     <h1>Events are Good</h1>
     <EventCard v-for="event in events" :key="event.id" :event="event" />
   </div>
@@ -8,56 +8,35 @@
 <script>
 // @ is an alias to /src
 import EventCard from "@/components/EventCard.vue";
+import axios from "axios";
+import EventService from "@/services/EventService.js";
 
 export default {
   name: "Home",
   components: {
-    EventCard, // register it as a child component
+    EventCard,
+    axios,
+    EventService,
   },
   data() {
     return {
-      events: [
-        {
-          id: 5928101,
-          category: "animal welfare",
-          title: "Cat Adoption Day",
-          description: "Find your new feline friend at this event.",
-          location: "Meow Town",
-          date: "January 28, 2022",
-          time: "12:00",
-          petsAllowed: true,
-          organizer: "Kat Laydee",
-        },
-        {
-          id: 5928101,
-          category: "animal welfare",
-          title: "Cat Adoption Day",
-          description: "Find your new feline friend at this event.",
-          location: "Meow Town",
-          date: "January 28, 2022",
-          time: "12:00",
-          petsAllowed: true,
-          organizer: "Kat Laydee",
-        },
-        {
-          id: 5928101,
-          category: "animal welfare",
-          title: "Cat Adoption Day",
-          description: "Find your new feline friend at this event.",
-          location: "Meow Town",
-          date: "January 28, 2022",
-          time: "12:00",
-          petsAllowed: true,
-          organizer: "Kat Laydee",
-        },
-      ],
+      events: null,
     };
+  },
+  created() {
+    EventService.getEvents()
+      .then((res) => {
+        this.events = res.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
 };
 </script>
 
 <style scoped>
-  .event-card {
+.event-card {
   padding: 20px;
   width: 250px;
   cursor: pointer;
