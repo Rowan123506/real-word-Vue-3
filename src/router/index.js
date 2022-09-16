@@ -6,7 +6,8 @@ import EventEdit from "../views/event/Edit.vue";
 import EventRegister from "../views/event/Register.vue";
 import EventLayout from "../views/event/Layout.vue";
 import NotFound from "../views/event/NotFound.vue";
-import NProgress from 'nprogress'
+import EventCreate from "../views/EventCreate.vue";
+import nprogress from "nprogress";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,6 +21,11 @@ const router = createRouter({
       path: "/about",
       name: "about",
       component: AboutView,
+    },
+    {
+      path: "/create",
+      name: "EventCreate",
+      component: EventCreate,
     },
     {
       path: "/event/:id",
@@ -54,19 +60,17 @@ const router = createRouter({
       path: "/404/:resource",
       name: "404Resource",
       component: NotFound,
-      props:true
+      props: true,
     },
   ],
 });
 
+router.beforeEach(() => {
+  nprogress.start();
+});
 
-router.beforeEach(()=>{
-  NProgress.start()
-})
-
-router.afterEach(()=>{
-  NProgress.done()
-})
-
+router.afterEach(() => {
+  nprogress.done();
+});
 
 export default router;

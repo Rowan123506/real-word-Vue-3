@@ -6,11 +6,13 @@ import { RouterLink, RouterView } from "vue-router";
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
+      <router-link :to="{ name: 'EventCreate' }">Create Event</router-link>
     </div>
     <router-view />
   </div>
 </template>
+
 
 <style scoped>
 header {
@@ -71,16 +73,12 @@ nav a:first-of-type {
   border: 5px solid wheat;
   background-color: wheat;
   font-size: 20px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: 800;
 }
 @media (min-width: 1024px) {
-
-
   .logo {
     margin: 0 2rem 0 0;
   }
-
-
 }
 </style>

@@ -9,7 +9,7 @@
 import EventCard from "@/components/EventCard.vue";
 import axios from "axios";
 import EventService from "@/services/EventService.js";
-import NProgress  from "nprogress ";
+import nprogress  from "nprogress ";
 
 export default {
   name: "Home",
@@ -17,25 +17,22 @@ export default {
     EventCard,
     axios,
     EventService,
-    NProgress ,
+    nprogress ,
   },
   data() {
     return {
       events: null,
     };
   },
-  beforeRouteEnter(routeTo, routeFrom, next) {
+  created() {
     EventService.getEvents()
-      .then((res) => {
-        next((comp=>{
-          comp.events = res.data;
-        }))
+      .then(response => {
+        this.events = response.data
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(error => {
+        console.log(error)
       })
-     
-  },
+  }
 };
 </script>
 

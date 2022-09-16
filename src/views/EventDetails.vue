@@ -23,7 +23,7 @@ export default {
 
   data() {
     return {
-      event: null,
+      event: [],
     };
   },
   created() {
